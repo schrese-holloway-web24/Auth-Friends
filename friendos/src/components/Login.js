@@ -32,6 +32,8 @@ const Login = props => {
             .post('/login', user)
             .then(res => {
                 console.log(res)
+                localStorage.setItem('token', res.data.payload)
+                props.history.push('/friends')
             })
             .catch(err => {
                 console.log(err)
@@ -40,8 +42,8 @@ const Login = props => {
 
     return (
         <form onSubmit = {SubmitHandler}>
-            <input type = 'text' placeholder = 'username' onChange = {changeHandler} />
-            <input type = 'text' placeholder = 'password' onChange = {changeHandler} />
+            <input type = 'text' placeholder = 'username' onChange = {changeHandler} value = {user.username} name = 'username' required />
+            <input type = 'text' placeholder = 'password' onChange = {changeHandler} value = {user.password} name = 'password' required />
             <button>Submit</button>
         </form>
     )
