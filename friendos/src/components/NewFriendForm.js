@@ -8,7 +8,7 @@ const friend = {
 
 }
 
-const NewFriendForm = (props) => {
+const NewFriendForm = ({setFriendos}) => {
     // const [friendos, setFriendos] = useState([]);
     const [newFriend, setNewFriend] = useState(friend)
 
@@ -40,6 +40,7 @@ const NewFriendForm = (props) => {
             .then(res => {
                 console.log('res from submitHandler', res)
                 setNewFriend({...newFriend, name: '', age: '', email: '' })
+                setFriendos(res.data);
             })
             .catch(err => {
                 console.log('error in submitHandler', err)

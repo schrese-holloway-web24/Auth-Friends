@@ -22,16 +22,16 @@ const FriendsList = () => {
             })
     }, [])
 
-
+//setFriendos is what is used to make things actually respond without having to refresh the page
     return (
         <FriendsListContainer>
             <FormContainer >
-                <NewFriendForm />
+                <NewFriendForm setFriendos = {setFriendos} />
             </FormContainer>
             
             {friendos.map(friend => (
                 <Something key = {friend.id}>
-                    <Friend friend = {friend} />
+                    <Friend friend = {friend} setFriendos = {setFriendos} />
                 </Something>
             ))}
         </FriendsListContainer>

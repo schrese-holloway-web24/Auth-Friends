@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
-const Friend = ({friend}) => {
+const Friend = ({friend, setFriendos}) => {
     const [editing, setEditing] = useState(false);
     const [editFriend, setEditFriend] = useState(friend);
 
@@ -10,6 +10,13 @@ const Friend = ({friend}) => {
         e.preventDefault();
         axiosWithAuth()
             .delete(`friends/${friend.id}`)
+            .then(res => {
+                console.log(res)
+                setFriendos(res.data)
+            })
+            .catch(err => {
+                console.log('error in deleteFriend axios', err)
+            })
     }
 
     const handleSubmit = e => {
@@ -20,6 +27,7 @@ const Friend = ({friend}) => {
                 console.log('res in the handleSubmit in Friend', res)
                 setEditFriend({...editFriend, name: '', age: '', email: ''})
                 setEditing(false)
+                setFriendos(res.data)
             })
             .catch(err => {
                 console.log('error in the handleSubmit in Friend', err)
