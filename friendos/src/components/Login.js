@@ -24,7 +24,7 @@ const Login = props => {
                        
         })
         // console.log('success!')
-        console.log(props.creds);
+        // console.log(props.creds);
     }
 
     //when submit is clicked, it is controlled, sets fetching to true, makes axios call, on success user is directed to the /friends page

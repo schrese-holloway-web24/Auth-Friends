@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import styled from 'styled-components';
 
-//component
+//components
 import Friend from './Friend';
+import NewFriendForm from './NewFriendForm';
 
 const FriendsList = () => {
     const [friendos, setFriendos] = useState([]);
@@ -22,15 +24,35 @@ const FriendsList = () => {
 
 
     return (
-        <div>
-            <h1>Will Login redirect here? </h1>
+        <FriendsListContainer>
+            <FormContainer>
+                <NewFriendForm />
+            </FormContainer>
+            
             {friendos.map(friend => (
-                <div key = {friend.id}>
+                <Something key = {friend.id}>
                     <Friend friend = {friend} />
-                </div>
+                </Something>
             ))}
-        </div>
+        </FriendsListContainer>
     )
 }
 
-export default FriendsList
+export default FriendsList;
+
+const FriendsListContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 5%;
+`
+
+const Something = styled.div`
+    width: 350px;
+    height: 350px;
+`
+
+const FormContainer = styled.div`
+    width: 90%;
+    height: 70px;
+`
