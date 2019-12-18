@@ -9,7 +9,7 @@ const initialState = {
     // isFetching: false
 }
 
-const Login = props => {
+const Login = (props) => {
     // console.log(props)
     const [user, setUser] = useState(initialState);
     const [fetching, setFetching] = useState(false);

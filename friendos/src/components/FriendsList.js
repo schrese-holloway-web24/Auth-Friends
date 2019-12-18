@@ -25,7 +25,7 @@ const FriendsList = () => {
 
     return (
         <FriendsListContainer>
-            <FormContainer>
+            <FormContainer >
                 <NewFriendForm />
             </FormContainer>
             

@@ -8,8 +8,8 @@ const friend = {
 
 }
 
-const NewFriendForm = () => {
-   
+const NewFriendForm = (props) => {
+    // const [friendos, setFriendos] = useState([]);
     const [newFriend, setNewFriend] = useState(friend)
 
     const changeHandler = e => {
@@ -20,8 +20,21 @@ const NewFriendForm = () => {
         })
     }
 
+    // const refreshList = e => {
+    //     axiosWithAuth()
+    //         .get('/friends')
+    //         .then(res => {
+    //             console.log('res from Form axios', res)
+    //             setFriendos(res.data)
+    //         })
+    //         .catch(err => {
+    //             console.log('err from Form axios', err)
+    //         })
+    // }
+
     const SubmitHandler = e => {
         e.preventDefault();
+        // refreshList();
         axiosWithAuth()
             .post('/friends', newFriend)
             .then(res => {

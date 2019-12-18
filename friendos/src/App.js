@@ -8,7 +8,10 @@ import Login from './components/Login';
 import FriendsList from './components/FriendsList';
 import PrivateRoute from './components/PrivateRoute';
 
+
 function App() {
+
+
   return (
     <Router>
       <div className="App">
